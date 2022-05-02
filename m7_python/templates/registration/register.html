@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div
+  class="bg-image d-flex justify-content-center align-items-center"
+  style="
+    background-image: url('https://intimacycodes.cl/wp-content/uploads/2022/05/PANEL-DECO-02.jpeg');
+    height: 100vh;
+  "
+>
+  <h1 class="text-white">Page title</h1>
+</div>
+<h1>crear nuevo usuario</h1>
+<form method='POST'>
+    {% csrf_token %}
+    <fieldset class="from-group">
+        {{form|crispy}}
+    </fieldset>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Registrar</button>
+    </div>
+</form>
+{% endblock %}

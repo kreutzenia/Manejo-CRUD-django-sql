@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h1>Bienvenido a este Portal , {{user.username}}</h1>
+    <h5> Usuario : {{user.first_name}} {{user.last_name}} ({{user.email}})</h5>
+    <a href='update_profile/'>Editar perfil de usuario</a>
+    <a href="{%url 'new_inmueble_url'}%">Nuevo inmueble </a>
+    <h3>Lista de propiedades publicadas:</h3>
+    {% for product in inmuebles %}
+        <tr>
+            <tr>
+                <h5>{{ product.nombre_inmueble }}</h5>
+                <a href="/update_inmueble?id_inmueble={{ product.id}}">Editar</a>
+                <a href="/eliminar_inmueble?id_inmueble={{ product.id}}">Borrar</a>
+
+            </tr>
+        </tr>
+    {% endfor %}
+<div>
+    <a ref="{% url 'logout'%}">Logout</a>
+
+</div>
+{% endblock %}
